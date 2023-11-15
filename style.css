@@ -1,0 +1,63 @@
+<style>
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+/* Стили для всего докомента*/
+
+.mainContent{
+    float: left;
+    height: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.timetable{
+    height: 100%;
+    float: right;
+    width: 80%;
+    background-color: yellow;
+}
+
+.sidePanel{
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: brown;
+    margin-top: 0px;
+}
+
+.recordDate{
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+/* Стили для списка "Специалисты"*/
+
+#title {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+    text-align: center; 
+  }
+
+#sidePanelTitle{
+    text-align:center; 
+    font-weight: bold;
+    margin-right: 10px;
+    
+}
+
+
+#filter{
+    display: inline-block;
+}
+
+</style>

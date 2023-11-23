@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="style.css">
 
 <body>
-    
-    <div class = "mainContent">
+
+    <div class = "allContent">
 
         <div class ="sidePanel">
             <div class ="recordDate">
@@ -26,69 +26,44 @@
                     <!-- <button id="filter" ></button> -->
                 </ul>
                 <ul class="workersListUl">
-                    <li>
+                    <!-- id="workerSelect" -->
+                    <li >
                         <input type="checkbox">
-                        <p>текст</p>
+                        <p>Работник 1</p>
+                    </li>
+                    <li >
+                        <input type="checkbox">
+                        <p>Работник 2</p>
                     </li>
                     <li>
                         <input type="checkbox">
-                        <p>текст</p>
+                        <p>Работник 3</p>
                     </li>
                     <li>
                         <input type="checkbox">
-                        <p>текст</p>
+                        <p>Работник 4</p>
                     </li>
                     <li>
                         <input type="checkbox">
-                        <p>текст</p>
-                    </li>
-                    <li>
-                        <input type="checkbox">
-                        <p>текст</p>
+                        <p>Работник 5</p>
                     </li>
                     
                 </ul>
             </div>
         </div>
 
-        <div class="timetable">
+        <div class="mainContent">
             <div class="timetableTitle">
                 <h1>Расписание специалистов</h1>
             </div>
             <div class="timetableContent">
-                <ul>
-                    <li class ="oneWorker">
-                        <div class="date">20.20.2023</div>
-                        <div class="FIO">Специалист1</div>
-                        <ul class="schedule">
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                        </ul>
-                    </li>
-                    <li class ="oneWorker">
-                        <div class="date">20.20.2023</div>
-                        <div class="FIO">Специалист2</div>
-                        <ul class="schedule">
-                            <li>text</li>
-                            <li>text</li>
-                            <li>text</li>
-                        </ul>
-                    </li>
-                </ul>
+                <ul class="timeTable"></ul>
             </div>
         </div>
         
     </div>
+
+    <script src="scripts/addWorker.js"></script>
 
 </body>
 

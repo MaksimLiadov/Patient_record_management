@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if(minuts == "0")
               minuts = "00";
             newItem.innerHTML = (hours +":" + minuts);
+            newItem.setAttribute('data-time', 0);
             lastscheduleList.append(newItem);
             time.setMinutes(time.getMinutes() + 10)
           }
@@ -42,6 +43,22 @@ document.addEventListener('DOMContentLoaded', function() {
         let allFIO = document.querySelectorAll('.FIO');
         let lastFIO = allFIO[allFIO.length - 1];
         lastFIO.innerHTML = name
+
+        //событие нажатия на время
+
+        let recordingTimes = document.querySelectorAll('[data-time]')
+        recordingTimes.forEach(function(recordingTime){
+            recordingTime.addEventListener('click', function(){
+              if(recordingTime.style.background == "green")
+                return
+
+              let FIO;
+              if(FIO = prompt("Введите ваше фИО", "Иванов Иван Иванович")){
+                recordingTime.innerHTML = FIO;
+                recordingTime.style.background = "green";
+              }
+            });
+        });
               
           } else {
             let name = this.nextElementSibling.textContent;

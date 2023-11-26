@@ -17,10 +17,9 @@ body {
 
 .sidePanel{
     width: 20%;
-    /* min-width: 300px; */
     height: 100%;
     float: left;
-    margin-top: 0px;
+    min-height: 750px;
 }
 
 .recordDate{
@@ -30,11 +29,14 @@ body {
     text-align: center;
 }
 
+
+
 /* Стили для поля выбора даты */
 
 .recordDate{
     background-color: #e7e6e6;
     border: 2px solid #253a3b;
+    height: 18%;
   }
 
 .recordDateInner{
@@ -51,14 +53,14 @@ body {
     font-size: 170%; 
   }
 
-/* Стили для списка "Специалисты" */
 
+
+/* Стили для списка "Специалисты" */
 
 .workersList{
     background-color: #e7e6e6;
     border: 2px solid #253a3b;
-    /* min-height: 613px;
-    max-height: 613px; */
+    height: 100%;
 }
 
 .workersListUl li{

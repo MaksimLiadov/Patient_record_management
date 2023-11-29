@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
+  
   checkboxes.forEach(function(checkbox) {
       checkbox.addEventListener('change', function() {
         if (this.checked) {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
           let newWorker = document.createElement('li');
           newWorker.classList.add('oneWorker');
           newWorker.innerHTML = `
-            <div class="date">20.20.2023</div>
+            <div class="date"></div>
             <div class="FIO"></div>
             <ul class="schedule">
               <li></li>
@@ -17,47 +17,58 @@ document.addEventListener('DOMContentLoaded', function() {
           `;
           timeTable.append(newWorker);
 
-          //заполнение списка времени записи
-          let allScheduleList = document.querySelectorAll('.schedule');
-          let lastscheduleList = allScheduleList[allScheduleList.length - 1];
-
-          lastscheduleList.firstChild.remove();
-          
-          let time = new Date();
-          time.setHours(8, 0, 0);
-          for (let i = 0; i < 21; i++) {
-            let newItem = document.createElement('li');
-            let hours = time.getHours();
-            let minuts = time.getMinutes();
-            if(minuts == "0")
-              minuts = "00";
-            newItem.innerHTML = (hours +":" + minuts);
-            newItem.setAttribute('data-time', 0);
-            lastscheduleList.append(newItem);
-            time.setMinutes(time.getMinutes() + 10)
-          }
-
-        //заполнение ФИО
+        //заполнение ФИО работника
         let name = this.nextElementSibling.textContent;
         
         let allFIO = document.querySelectorAll('.FIO');
         let lastFIO = allFIO[allFIO.length - 1];
         lastFIO.innerHTML = name
 
+        //Заполнение даты
+
+        let defaultDate = document.getElementById("defaultDate").value;
+
+        let divClassDate = document.querySelectorAll('.date');
+        let lastDivClassDate = divClassDate[divClassDate.length - 1]
+        lastDivClassDate.innerHTML = defaultDate
+
+
+          //заполнение списка времени записи
+          let allScheduleList = document.querySelectorAll('.schedule');
+          let lastscheduleList = allScheduleList[allScheduleList.length - 1];
+          recordingTimeEntry(lastscheduleList, lastFIO, lastDivClassDate, lastFIO.innerHTML);
+
+        
         //событие нажатия на время
 
         let recordingTimes = document.querySelectorAll('[data-time]')
+        
         recordingTimes.forEach(function(recordingTime){
-            recordingTime.addEventListener('click', function(){
-              if(recordingTime.style.background == "green")
-                return
+        recordingTime.addEventListener('click', function(){
+        
+          if(recordingTime.style.background == "green")
+            return;
 
-              let FIO;
-              if(FIO = prompt("Введите ваше фИО", "Иванов Иван Иванович")){
-                recordingTime.innerHTML = FIO;
-                recordingTime.style.background = "green";
-              }
-            });
+          let FIO = prompt("Введите ваше ФИО", "Иванов Иван Иванович");  
+          if(FIO){
+            
+            let key = lastFIO.innerHTML +","+ defaultDate +","+ recordingTime.innerHTML
+            localStorage.setItem(key, FIO)
+
+            recordingTime.innerHTML = FIO;
+            recordingTime.style.background = "green";
+            //localStorage.clear();
+
+            // for(let i=0; i<localStorage.length; i++) {
+            //   let key = localStorage.key(i);
+            //   alert(`${key}: ${localStorage.getItem(key)}`);
+            // }
+          }
+          else
+            return;
+            
+        
+          });
         });
               
           } else {
@@ -76,3 +87,88 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 });
+
+
+
+function recordingTimeEntry(lastscheduleList, lastFIO, defaultDate){
+  lastscheduleList.firstChild.remove();
+
+  let thereIsRecord;
+  let setKeyName;
+
+  let time = new Date();
+  time.setHours(8, 0, 0);
+
+  for(let i=0; i<localStorage.length; i++) {
+    let key = localStorage.key(i);
+    alert(`${key}: ${localStorage.getItem(key)}`);
+  }
+
+  //alert(lastFIO.innerHTML);
+
+  for (let i = 0; i < 21; i++) {
+      let newItem = document.createElement('li');
+      let hours = time.getHours();
+      let minuts = time.getMinutes();
+
+      if(minuts == "0")
+        minuts = "00";
+
+      newItem.innerHTML = (hours +":" + minuts);
+      //alert(newItem.innerHTML);
+
+      if(localStorage.length == 0){
+        newItem.innerHTML = (hours +":" + minuts);
+        newItem.setAttribute('data-time', 0);
+        lastscheduleList.append(newItem);
+        time.setMinutes(time.getMinutes() + 10)
+      }
+        
+      for (let i = 0; i < localStorage.length; i++){
+        //alert("Работает?");
+        let key = localStorage.key(i);
+        let [keyWorkerName, keyRecordDate, keyTime] = key.split(',');
+
+        if((keyWorkerName == lastFIO.innerHTML) && (keyRecordDate == defaultDate.innerHTML) && (keyTime == newItem.innerHTML)){
+          //thereIsRecord = true;
+          //alert("true1");
+
+          setKeyName = localStorage.getItem(key);
+          newItem.innerHTML = setKeyName;
+          newItem.style.backgroundColor = "green"
+          newItem.setAttribute('data-time', 0);
+          lastscheduleList.append(newItem);
+          time.setMinutes(time.getMinutes() + 10)  
+        }
+        else{
+          //alert("false1");
+          //thereIsRecord = false;
+          newItem.innerHTML = (hours +":" + minuts);
+          newItem.setAttribute('data-time', 0);
+          lastscheduleList.append(newItem);
+          time.setMinutes(time.getMinutes() + 10)  
+        }
+      }
+
+        
+      
+  }
+}
+
+function thereIsRecordFunction(l_thereIsRecord){
+  if(l_thereIsRecord){
+    //alert("true")
+    newItem.innerHTML = setKeyName;
+    newItem.style.backgroundColor = "green"
+    newItem.setAttribute('data-time', 0);
+    lastscheduleList.append(newItem);
+    time.setMinutes(time.getMinutes() + 10)  
+  }
+  else{
+    //alert("false")
+    newItem.innerHTML = (hours +":" + minuts);
+    newItem.setAttribute('data-time', 0);
+    lastscheduleList.append(newItem);
+    time.setMinutes(time.getMinutes() + 10)  
+  }
+}

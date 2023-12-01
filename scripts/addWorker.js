@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
           timeTable.append(newWorker);
 
         //заполнение ФИО работника
+
         let name = this.nextElementSibling.textContent;
         
         let allFIO = document.querySelectorAll('.FIO');
@@ -58,11 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
             recordingTime.innerHTML = FIO;
             recordingTime.style.background = "green";
             //localStorage.clear();
-
-            // for(let i=0; i<localStorage.length; i++) {
-            //   let key = localStorage.key(i);
-            //   alert(`${key}: ${localStorage.getItem(key)}`);
-            // }
           }
           else
             return;
@@ -92,21 +88,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function recordingTimeEntry(lastscheduleList, lastFIO, defaultDate){
   lastscheduleList.firstChild.remove();
-
-  let thereIsRecord;
-  let setKeyName;
+  
+  let KeyName;
 
   let time = new Date();
   time.setHours(8, 0, 0);
 
-  for(let i=0; i<localStorage.length; i++) {
-    let key = localStorage.key(i);
-    alert(`${key}: ${localStorage.getItem(key)}`);
-  }
-
-  //alert(lastFIO.innerHTML);
-
   for (let i = 0; i < 21; i++) {
+
+    let thereIsRecord = false;
+
       let newItem = document.createElement('li');
       let hours = time.getHours();
       let minuts = time.getMinutes();
@@ -115,7 +106,6 @@ function recordingTimeEntry(lastscheduleList, lastFIO, defaultDate){
         minuts = "00";
 
       newItem.innerHTML = (hours +":" + minuts);
-      //alert(newItem.innerHTML);
 
       if(localStorage.length == 0){
         newItem.innerHTML = (hours +":" + minuts);
@@ -123,52 +113,28 @@ function recordingTimeEntry(lastscheduleList, lastFIO, defaultDate){
         lastscheduleList.append(newItem);
         time.setMinutes(time.getMinutes() + 10)
       }
-        
+      
       for (let i = 0; i < localStorage.length; i++){
-        //alert("Работает?");
+        
         let key = localStorage.key(i);
-        let [keyWorkerName, keyRecordDate, keyTime] = key.split(',');
-
-        if((keyWorkerName == lastFIO.innerHTML) && (keyRecordDate == defaultDate.innerHTML) && (keyTime == newItem.innerHTML)){
-          //thereIsRecord = true;
-          //alert("true1");
-
-          setKeyName = localStorage.getItem(key);
-          newItem.innerHTML = setKeyName;
-          newItem.style.backgroundColor = "green"
+         let [keyWorkerName, keyRecordDate, keyTime] = key.split(',');
+  
+         if((keyWorkerName == lastFIO.innerHTML) && (keyRecordDate == defaultDate.innerHTML) && (keyTime == newItem.innerHTML)){
+          KeyName = localStorage.getItem(key);
+          newItem.innerHTML = KeyName;
+          newItem.textContent = KeyName;
+          newItem.style.backgroundColor = "green";
           newItem.setAttribute('data-time', 0);
           lastscheduleList.append(newItem);
-          time.setMinutes(time.getMinutes() + 10)  
-        }
-        else{
-          //alert("false1");
-          //thereIsRecord = false;
-          newItem.innerHTML = (hours +":" + minuts);
-          newItem.setAttribute('data-time', 0);
-          lastscheduleList.append(newItem);
-          time.setMinutes(time.getMinutes() + 10)  
-        }
+          time.setMinutes(time.getMinutes() + 10);
+         }
       }
 
-        
-      
-  }
-}
-
-function thereIsRecordFunction(l_thereIsRecord){
-  if(l_thereIsRecord){
-    //alert("true")
-    newItem.innerHTML = setKeyName;
-    newItem.style.backgroundColor = "green"
-    newItem.setAttribute('data-time', 0);
-    lastscheduleList.append(newItem);
-    time.setMinutes(time.getMinutes() + 10)  
-  }
-  else{
-    //alert("false")
-    newItem.innerHTML = (hours +":" + minuts);
-    newItem.setAttribute('data-time', 0);
-    lastscheduleList.append(newItem);
-    time.setMinutes(time.getMinutes() + 10)  
+      if(!thereIsRecord && localStorage.length != 0){
+        newItem.innerHTML = (hours +":" + minuts);
+        newItem.setAttribute('data-time', 0);
+        lastscheduleList.append(newItem);
+        time.setMinutes(time.getMinutes() + 10);
+      }  
   }
 }

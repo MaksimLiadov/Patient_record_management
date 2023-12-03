@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='ru'>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Графики</title>
+    
+</head>
+
+<link rel="stylesheet" href="style.css">
+
+
+
+<body>
+    <h1>Таблица занятости</h1>
+    <h2>Показывает количесвто записей к врачу на сегодня</h2>
+    <table id="diagramEmployment">
+        <tr id="diagramEmployment_InternalHeader"></tr>
+        <tr id="diagramEmployment_content"></tr>
+    </table>
+
+    <h1>Таблица занятости 2</h1>
+    <table id="diagram_employment">
+        <tr>
+          <th>Было:</th>
+          <th>Станет:</th>
+        </tr>
+        <td>
+          <div style="background: red;width:40px;height:100px"></div>
+        </td>
+        <td>
+          <div style="background: green;width:40px;height:200px" id="height-after"></div>
+        </td>
+    </table>
+
+    
+<script src="scripts/makeChart1.js"></script>
+
+</body>
+
+</html>

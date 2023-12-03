@@ -62,8 +62,8 @@ body {
     border: 2px solid #253a3b;
     height: 100%;
     overflow-y: auto;
-    max-height: 600px;
-    min-height: 600px;
+    max-height: 632px;
+    min-height: 632px;
 }
 
 .workersListUl li{
@@ -110,6 +110,27 @@ body {
     font-family: "Arial", sans-serif;
     background-color: #e7e6e6;
     border: 2px solid #253a3b;
+}
+.timetableTitleUl{
+    display: flex;
+    flex-direction: row;
+}
+
+#chart{
+    display: inline-block;
+    width: 90px;
+    margin-left: 67%;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #eee;
+    border: 2px solid #253a3b;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#chart:hover {
+    background-color: #ddd;
 }
 
 .timetableTitle h1{
@@ -189,4 +210,17 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: large;
+}
+
+/* Стили для таблиц */
+
+#diagramEmployment_InternalHeader th{
+    padding-right: 10px;
+}
+
+#diagramEmployment_content td{
+    vertical-align: bottom;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
 }

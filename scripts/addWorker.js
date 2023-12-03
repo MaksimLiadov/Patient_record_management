@@ -120,6 +120,7 @@ function recordingTimeEntry(lastscheduleList, lastFIO, defaultDate){
          let [keyWorkerName, keyRecordDate, keyTime] = key.split(',');
   
          if((keyWorkerName == lastFIO.innerHTML) && (keyRecordDate == defaultDate.innerHTML) && (keyTime == newItem.innerHTML)){
+          thereIsRecord = true;
           KeyName = localStorage.getItem(key);
           newItem.innerHTML = KeyName;
           newItem.textContent = KeyName;

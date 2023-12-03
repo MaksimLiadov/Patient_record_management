@@ -214,13 +214,50 @@ body {
 
 /* Стили для таблиц */
 
+#diagramEmployment{
+    border-bottom: 2px solid #253a3b
+}
+
 #diagramEmployment_InternalHeader th{
     padding-right: 10px;
 }
 
 #diagramEmployment_content td{
     vertical-align: bottom;
-      text-align: center;
-      padding: 10px;
-      font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    min-height: 20px;
+}
+
+#diagramEmploymentAll{
+    border-bottom: 2px solid #253a3b
+}
+
+#diagramEmploymentAll_InternalHeader th{
+    padding-right: 10px;
+}
+
+#diagramEmploymentAll_content td{
+    vertical-align: bottom;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    min-height: 20px;
+}
+
+#diagramDayOfTheWeek{
+    border-bottom: 2px solid #253a3b
+}
+
+#diagramDayOfTheWeek_InternalHeader th{
+    padding-right: 10px;
+}
+
+#diagramDayOfTheWeek_content td{
+    vertical-align: bottom;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    min-height: 20px;
 }

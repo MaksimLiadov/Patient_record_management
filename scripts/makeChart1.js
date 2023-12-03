@@ -42,7 +42,7 @@
 
         let td1 = document.createElement('td');
 
-        let l_height = 100 / (maxRecords - (mapAllworkers.get(arrKey[i]) - 1));
+        let l_height = (150 / (maxRecords - (mapAllworkers.get(arrKey[i]) - 1)) + 10);
 
         let div1 = document.createElement('div');
         div1.innerHTML = mapAllworkers.get(arrKey[i]);

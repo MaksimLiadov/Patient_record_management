@@ -28,9 +28,17 @@ document.addEventListener('DOMContentLoaded', function() {
         //Заполнение даты
 
         let defaultDate = document.getElementById("defaultDate").value;
+        
+        let defaultDateSplit = defaultDate.split('-'); 
+        let dd = defaultDateSplit[2];
+        let mm = defaultDateSplit[1];
+        let yyyy = defaultDateSplit[0];
+
+        defaultDate = dd + "-" + mm + "-" + yyyy
 
         let divClassDate = document.querySelectorAll('.date');
         let lastDivClassDate = divClassDate[divClassDate.length - 1]
+
         lastDivClassDate.innerHTML = defaultDate
 
 

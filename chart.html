@@ -5,9 +5,9 @@
     <meta charset='utf-8'>
     <title>Графики</title>
     
-    <script src="scripts/makeChart1.js" defer></script>
-    <script src="scripts/makeChart2.js" defer></script>
-    <script src="scripts/makeChartDayOfTheWeek.js" defer></script>
+    <script src="scripts/employment_table_one_day.js" defer></script>
+    <script src="scripts/employment_table_all_time.js" defer></script>
+    <script src="scripts/make_chart_day_of_week.js" defer></script>
 </head>
 
 <link rel="stylesheet" href="style.css">
@@ -15,38 +15,46 @@
 
 
 <body>
-    <a id="back_to_index" href="index.html">Главная страница</a>
-    <h1>Таблица занятости на день </h1>
-    <h2>Показывает количесвто записей к врачу на сегодня</h2>
-    <table id="diagramEmployment">
-        <tr id="diagramEmployment_InternalHeader"></tr>
-        <tr id="diagramEmployment_content"></tr>
-    </table>
 
-    <h1>Таблица занятости за все время</h1>
-    <h2>Показывает количесвто записей к врачу за все время</h2>
-    <table id="diagramEmploymentAll">
-        <tr id="diagramEmploymentAll_InternalHeader"></tr>
-        <tr id="diagramEmploymentAll_content"></tr>
-    </table>
+    <div class="charts_wrapper">
+        
+        <div class="charts_content">
+            <h1>Таблица занятости на день </h1>
+            <h2>Показывает количесвто записей к врачу на сегодня</h2>
+            <table id="diagramEmployment">
+                <tr id="diagramEmployment_InternalHeader"></tr>
+                <tr id="diagramEmployment_content"></tr>
+            </table>
+        
+            <h1>Таблица занятости за все время</h1>
+            <h2>Показывает количесвто записей к врачу за все время</h2>
+            <table id="diagramEmploymentAll">
+                <tr id="diagramEmploymentAll_InternalHeader"></tr>
+                <tr id="diagramEmploymentAll_content"></tr>
+            </table>
+        
+            <h1>Таблица занятости за все время</h1>
+            <h2>Показывает количесвто записей ко всем врачам по каждому дню недели</h2>
+            <table id="diagramDayOfTheWeek">
+                <tr id="diagramDayOfTheWeek_InternalHeader">
+                  <th>Понедельник</th>
+                  <th>Вторник</th>
+                  <th>Среда</th>
+                  <th>Четверг</th>
+                  <th>Пятница</th>
+                  <th>Суббота</th>
+                  <th>Воскресенье</th>
+                </tr>
+                <tr id="diagramDayOfTheWeek_content"></tr>
+            </table>
+        </div>
 
-    <h1>Таблица занятости за все время</h1>
-    <h2>Показывает количесвто записей ко всем врачам по каждому дню недели</h2>
-    <table id="diagramDayOfTheWeek">
-        <tr id="diagramDayOfTheWeek_InternalHeader">
-          <th>Понедельник</th>
-          <th>Вторник</th>
-          <th>Среда</th>
-          <th>Четверг</th>
-          <th>Пятница</th>
-          <th>Суббота</th>
-          <th>Воскресенье</th>
-        </tr>
-        <tr id="diagramDayOfTheWeek_content"></tr>
-    </table>
+        <div class="charts_buttons">
+            <a class="back_to_index" href="index.html">Главная страница</a>
+        </div>
+        
+    </div>
     
-
-
 </body>
 
 </html>

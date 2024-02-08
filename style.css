@@ -116,41 +116,6 @@ body {
     flex-direction: row;
 }
 
-#chart{
-    display: inline-block;
-    width: 90px;
-    margin-left: 67%;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    background-color: #eee;
-    border: 2px solid #253a3b;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-#chart:hover {
-    background-color: #ddd;
-}
-#back_to_index{
-    font-family: "Arial", sans-serif;
-    color: black;
-    display: inline-block;
-    width: 90px;
-    margin-left: 95%;
-    font-size: 16px;
-    text-align: center;
-    background-color: #eee;
-    border: 2px solid #253a3b;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-}
-
-#back_to_index:hover {
-    background-color: #ddd;
-}
-
 .timetableTitle h1{
     margin-left: 20px;
     font-size: 170%;
@@ -232,6 +197,32 @@ body {
 
 /* Стили для диаграмм */
 
+
+.charts_wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.back_to_index{
+    position: relative;
+    float: left;
+    margin-top: 20px;
+    font-family: "Arial", sans-serif;
+    color: black;
+    width: 90px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #eee;
+    border: 2px solid #253a3b;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.back_to_index:hover {
+    background-color: #ddd;
+}
+
 #diagramEmployment{
     border-bottom: 2px solid #253a3b
 }
@@ -278,4 +269,21 @@ body {
     padding: 10px;
     font-weight: bold;
     min-height: 20px;
+}
+
+#chart{
+    display: inline-block;
+    width: 90px;
+    margin-left: 67%;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #eee;
+    border: 2px solid #253a3b;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#chart:hover {
+    background-color: #ddd;
 }

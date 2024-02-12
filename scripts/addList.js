@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  let checkboxes = document.querySelectorAll('.addList');
   
   checkboxes.forEach(function(checkbox) {
       checkbox.addEventListener('change', function() {
@@ -17,43 +17,39 @@ document.addEventListener('DOMContentLoaded', function() {
           `;
           timeTable.append(newWorker);
 
+        //последний список
+        let Tables = document.querySelector('.timeTable');
+        let lastList = Tables.lastChild;//.querySelector('.schedule');
+
         //заполнение ФИО работника
 
         let name = this.nextElementSibling.textContent;
         
-        let allFIO = document.querySelectorAll('.FIO');
-        let lastFIO = allFIO[allFIO.length - 1];
+        let lastFIO = lastList.querySelector('.FIO');
         lastFIO.innerHTML = name
-
+        
         //Заполнение даты
 
         let defaultDate = document.getElementById("defaultDate").value;
+        let lastDivClassDate = lastList.querySelector('.date');
         
+       
         let defaultDateSplit = defaultDate.split('-'); 
         let dd = defaultDateSplit[2];
         let mm = defaultDateSplit[1];
         let yyyy = defaultDateSplit[0];
-
-        defaultDate = dd + "-" + mm + "-" + yyyy
-
-        let divClassDate = document.querySelectorAll('.date');
-        let lastDivClassDate = divClassDate[divClassDate.length - 1]
-
-        lastDivClassDate.innerHTML = defaultDate
-
-
-          //заполнение списка времени записи
-          let allScheduleList = document.querySelectorAll('.schedule');
-          let lastscheduleList = allScheduleList[allScheduleList.length - 1];
-          recordingTimeEntry(lastscheduleList, lastFIO, lastDivClassDate, lastFIO.innerHTML);
-
+        defaultDate = dd + "-" + mm + "-" + yyyy;
+        lastDivClassDate.innerHTML = defaultDate;
         
+        //заполнение списка времени записи
+        
+        let lastsheduleList = lastList.querySelector('.schedule');
+        recordingTimeEntry(lastsheduleList, lastFIO, lastDivClassDate, lastFIO.innerHTML);
+
         //событие нажатия на время
-
-        let recordingTimes = document.querySelectorAll('[data-time]')
         
-        recordingTimes.forEach(function(recordingTime){
-        recordingTime.addEventListener('click', function(){
+        lastsheduleList.childNodes.forEach(function(recordingTime){
+          recordingTime.addEventListener('click', function(){
         
           if(recordingTime.style.background == "green")
             return;

@@ -54,8 +54,23 @@ document.addEventListener('DOMContentLoaded', function () {
           lastsheduleList.childNodes.forEach(function (recordingTime) {
             recordingTime.addEventListener('click', function () {
 
-              if (recordingTime.style.background == "green")
-                return;
+              if (recordingTime.style.backgroundColor == "green") {
+                let del = confirm("Вы хотите удалить запись?");
+                if (del) {
+                  //как лучше?
+                  let schedule = this.parentNode;
+                  let oneWorker = schedule.parentNode;
+
+                  let fio = oneWorker.querySelector(".FIO").innerHTML;
+                  let date = this.parentNode.parentNode.querySelector(".date").innerHTML;
+                  deleteRecord(this, fio, date);
+                  return
+                }
+                else
+                  return
+
+              }
+
 
               let FIO = prompt("Введите ваше ФИО", "Иванов Иван Иванович");
               if (FIO) {
@@ -64,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem(key, FIO)
 
                 recordingTime.innerHTML = FIO;
-                recordingTime.style.background = "green";
+                recordingTime.style.backgroundColor = "green";
                 //localStorage.clear();
               }
               else
@@ -92,6 +107,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+function deleteRecord(element, fio, date) {
+
+  timeInnerHtml = element.nextSibling.innerHTML;
+  let [hours, minuts] = timeInnerHtml.split(":");
+  let time = hours + ":" + (minuts - 10);
+
+  element.innerHTML = time;
+  element.style.backgroundColor = "";
+
+  let key = fio + "," + date + "," + time;
+
+  localStorage.removeItem(key)
+}
 
 
 function recordingTimeEnter(lastscheduleList, lastFIO, defaultDate) {
@@ -131,7 +160,6 @@ function recordingTimeEnter(lastscheduleList, lastFIO, defaultDate) {
         thereIsRecord = true;
         KeyName = localStorage.getItem(key);
         newItem.innerHTML = KeyName;
-        newItem.textContent = KeyName;
         newItem.style.backgroundColor = "green";
         newItem.setAttribute('data-time', 0);
         lastscheduleList.append(newItem);

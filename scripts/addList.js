@@ -23,8 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
           timeTable.append(newWorker);
 
           //последний список
-          let Tables = document.querySelector('.timeTable');
-          let lastList = Tables.lastChild;//.querySelector('.schedule');
+          let lastList = timeTable.lastChild;
 
           //заполнение ФИО работника
 
@@ -35,21 +34,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
           //Заполнение даты
 
-
           let lastDivClassDate = lastList.querySelector('.date');
-
 
           let defaultDateSplit = defaultDate.split('-');
           let dd = defaultDateSplit[2];
           let mm = defaultDateSplit[1];
           let yyyy = defaultDateSplit[0];
+
           defaultDate = dd + "-" + mm + "-" + yyyy;
           lastDivClassDate.innerHTML = defaultDate;
 
           //заполнение списка времени записи
 
           let lastsheduleList = lastList.querySelector('.schedule');
-          recordingTimeEntry(lastsheduleList, lastFIO, lastDivClassDate, lastFIO.innerHTML);
+          recordingTimeEnter(lastsheduleList, lastFIO, lastDivClassDate, lastFIO.innerHTML);
 
           //событие нажатия на время
 
@@ -96,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-function recordingTimeEntry(lastscheduleList, lastFIO, defaultDate) {
+function recordingTimeEnter(lastscheduleList, lastFIO, defaultDate) {
   lastscheduleList.firstChild.remove();
 
   let KeyName;

@@ -5,18 +5,18 @@
     <meta charset='utf-8'>
     <title>Запись на прием</title>
 
-    <script src="scripts/addList.js" defer></script>
     <script src="scripts/defaultDate.js" defer></script>
+    <script src="scripts/addList.js" defer></script>
 </head>
 
 <link rel="stylesheet" href="style.css">
 
 <body>
 
-    <div class = "allContent">
+    <div class="allContent">
 
-        <div class ="sidePanel">
-            <div class ="recordDate">
+        <div class="sidePanel">
+            <div class="recordDate">
                 <div class="recordDateInner">
                     <h1>Дата записи</h1>
                     <input type="date" id="defaultDate"></input>
@@ -27,11 +27,11 @@
                     <h1 id="sidePanelTitle">Специалиты</h1>
                 </ul>
                 <ul class="workersListUl">
-                    <li >
+                    <li>
                         <input type="checkbox" class="addList">
                         <p>Работник 1</p>
                     </li>
-                    <li >
+                    <li>
                         <input type="checkbox" class="addList">
                         <p>Работник 2</p>
                     </li>
@@ -46,12 +46,16 @@
                     <li>
                         <input type="checkbox" class="addList">
                         <p>Работник 5</p>
-                    </li> 
+                    </li>
                     <li>
                         <input type="checkbox" class="addList">
                         <p>Работник 6</p>
-                    </li> 
-                    
+                    </li>
+                    <li>
+                        <input type="checkbox" class="addList">
+                        <p>Работник 7</p>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -59,18 +63,18 @@
         <div class="mainContent">
             <div class="timetableTitle">
                 <ul class="timetableTitleUl">
-                <h1>Расписание специалистов</h1>
-                <button id="chart" onclick="window.location.href = 'chart.html'">Графики</button>
-                </ul>               
+                    <h1>Расписание специалистов</h1>
+                    <button id="chart" onclick="window.location.href = 'chart.html'">Графики</button>
+                </ul>
             </div>
             <div class="timetableContent">
                 <ul class="timeTable"></ul>
             </div>
         </div>
-        
+
     </div>
 
-    
+
 
 </body>
 

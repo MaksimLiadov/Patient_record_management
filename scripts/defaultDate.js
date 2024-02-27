@@ -15,25 +15,24 @@ inputeDate.addEventListener('change', function () {
     allList.forEach(function (List) {
         let newDate = document.getElementById("defaultDate").value;
         let dateElem = List.querySelector('.date');
-        changeDate(newDate, dateElem);
-
-        function changeDate(newDate, dateElem) {
-
-            let defaultDateSplit = newDate.split('-');
-            let dd = defaultDateSplit[2];
-            let mm = defaultDateSplit[1];
-            let yyyy = defaultDateSplit[0];
-
-            newDate = dd + "-" + mm + "-" + yyyy;
-            dateElem.innerHTML = newDate;
-
-            date = List.querySelector('.date');
-            fio = List.querySelector('.FIO');
-            recordingTimeChange(List, fio, date);
-        }
-
+        changeDate(List, newDate, dateElem);
     });
 });
+
+function changeDate(List, newDate, dateElem) {
+
+    let defaultDateSplit = newDate.split('-');
+    let dd = defaultDateSplit[2];
+    let mm = defaultDateSplit[1];
+    let yyyy = defaultDateSplit[0];
+
+    newDate = dd + "-" + mm + "-" + yyyy;
+    dateElem.innerHTML = newDate;
+
+    date = List.querySelector('.date');
+    fio = List.querySelector('.FIO');
+    recordingTimeChange(List, fio, date);
+}
 
 function recordingTimeChange(oneWorker, FIO, date) {
 

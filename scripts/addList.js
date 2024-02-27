@@ -35,14 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
           //Заполнение даты
 
           let lastDivClassDate = lastList.querySelector('.date');
-
-          let defaultDateSplit = defaultDate.split('-');
-          let dd = defaultDateSplit[2];
-          let mm = defaultDateSplit[1];
-          let yyyy = defaultDateSplit[0];
-
-          defaultDate = dd + "-" + mm + "-" + yyyy;
-          lastDivClassDate.innerHTML = defaultDate;
+          fillingDate(lastDivClassDate, defaultDate);
 
           //заполнение списка времени записи
 
@@ -54,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
           lastsheduleList.childNodes.forEach(function (recordingTime) {
             recordingTime.addEventListener('click', function () {
 
+              //Удаление
               if (recordingTime.style.backgroundColor == "green") {
                 let del = confirm("Вы хотите удалить запись?");
                 if (del) {
@@ -64,17 +58,18 @@ document.addEventListener('DOMContentLoaded', function () {
                   let fio = oneWorker.querySelector(".FIO").innerHTML;
                   let date = this.parentNode.parentNode.querySelector(".date").innerHTML;
                   deleteRecord(this, fio, date);
-                  return
+                  return;
                 }
                 else
-                  return
-
+                  return;
               }
 
-
+              //Добавление
               let FIO = prompt("Введите ваше ФИО", "Иванов Иван Иванович");
-              if (FIO) {
+              Validation = checkValidation(FIO);
+              if (Validation) {
 
+                defaultDate = lastDivClassDate.innerHTML;
                 let key = lastFIO.innerHTML + "," + defaultDate + "," + recordingTime.innerHTML
                 localStorage.setItem(key, FIO)
 
@@ -82,10 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 recordingTime.style.backgroundColor = "green";
                 //localStorage.clear();
               }
-              else
+              else {
+                alert("Введено некоректное ФИО");
                 return;
-
-
+              }
             });
           });
         }
@@ -122,6 +117,34 @@ function deleteRecord(element, fio, date) {
   localStorage.removeItem(key)
 }
 
+function fillingDate(lastDivClassDate, defaultDate) {
+  let defaultDateSplit = defaultDate.split('-');
+  let dd = defaultDateSplit[2];
+  let mm = defaultDateSplit[1];
+  let yyyy = defaultDateSplit[0];
+
+  defaultDate = dd + "-" + mm + "-" + yyyy;
+  lastDivClassDate.innerHTML = defaultDate;
+}
+
+function checkValidation(fio) {
+  let isValidated = true;
+
+  let [name, lastName, Patronymic] = fio.split(" ");
+
+  if (!(name && lastName && Patronymic))
+    isValidated = false;
+
+  for (let i = 0; i < fio.length; i++) {
+    let a = fio[i];
+    if (a == "1" || a == "2" || a == "3" || a == "4" || a == "5" || a == "6" || a == "7" || a == "8" || a == "9" || a == "0"
+      || a == "!" || a == "@" || a == "#" || a == "$" || a == "%" || a == "^" || a == "&" || a == "*" || a == "(") {
+      isValidated = false
+    }
+  }
+
+  return isValidated;
+}
 
 function recordingTimeEnter(lastscheduleList, lastFIO, defaultDate) {
   lastscheduleList.firstChild.remove();

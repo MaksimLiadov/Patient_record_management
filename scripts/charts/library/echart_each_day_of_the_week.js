@@ -14,7 +14,7 @@ let optionChartDayOfWeek = {
     tooltip: {},
     legend: {
         right: "0%",
-        data: ['sales']
+        data: ['Записи']
     },
     xAxis: {
         data: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -22,7 +22,7 @@ let optionChartDayOfWeek = {
     yAxis: {},
     series: [
         {
-            name: 'sales',
+            name: 'Записи',
             type: 'bar',
             data: numberAppointment
         }

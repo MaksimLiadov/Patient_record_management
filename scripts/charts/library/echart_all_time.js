@@ -19,7 +19,7 @@ let optionChartAllTime = {
     tooltip: {},
     legend: {
         right: "0%",
-        data: ['sales']
+        data: ['Записи']
     },
     xAxis: {
         data: employeeArray
@@ -27,7 +27,7 @@ let optionChartAllTime = {
     yAxis: {},
     series: [
         {
-            name: 'sales',
+            name: 'Записи',
             type: 'bar',
             data: numberRecords
         }

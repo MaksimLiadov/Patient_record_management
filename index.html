@@ -9,12 +9,10 @@
     <script src="scripts/addList.js" defer></script>
 </head>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles/indexStyle.css">
 
 <body>
-
     <div class="allContent">
-
         <div class="sidePanel">
             <div class="recordDate">
                 <div class="recordDateInner">
@@ -64,18 +62,18 @@
             <div class="timetableTitle">
                 <ul class="timetableTitleUl">
                     <h1>Расписание специалистов</h1>
-                    <button id="chart" onclick="window.location.href = 'chart.html'">Графики</button>
+                    <div class="buttons">
+                        <button class="chartButton"
+                            onclick="window.location.href = 'echarts.html'">Графики(библиотека)</button>
+                        <button class="chartButton" onclick="window.location.href = 'chart.html'">Графики</button>
+                    </div>
                 </ul>
             </div>
             <div class="timetableContent">
                 <ul class="timeTable"></ul>
             </div>
         </div>
-
     </div>
-
-
-
 </body>
 
 </html>

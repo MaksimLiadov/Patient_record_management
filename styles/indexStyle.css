@@ -1,0 +1,229 @@
+body {
+    margin: 0px;
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+/* Стили для докомента в целом*/
+
+.allContent {
+    float: left;
+    height: 100%;
+    width: calc(100% - 4px);
+    font-size: 16px;
+}
+
+
+.mainContent {
+    position: relative;
+    z-index: 1;
+    left: 20%;
+    height: 100%;
+    float: left;
+    width: 80%;
+}
+
+.sidePanel {
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+.recordDate {
+    width: 100% - 4px;
+    height: 100%;
+    text-align: center;
+}
+
+/* Стили для поля выбора даты */
+
+.recordDate {
+    display: flex;
+    background-color: #e7e6e6;
+    border: 2px solid #253a3b;
+    height: 18%;
+}
+
+.recordDateInner {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.recordDateInner h1 {
+    margin-top: 0;
+    font-family: "Arial", sans-serif;
+    font-size: 2rem;
+}
+
+.recordDateInner input[type="date"] {
+    font-size: 1.8rem;
+}
+
+
+
+/* Стили для списка "Специалисты" */
+
+.workersList {
+    background-color: #e7e6e6;
+    border: 2px solid #253a3b;
+    min-height: calc(82% - 8px);
+    overflow-y: auto;
+}
+
+.workersListUl li {
+    display: flex;
+    width: 90%;
+    margin-bottom: 1px;
+    background-color: white;
+    border: 1px solid #253a3b;
+}
+
+.workersListUl li>* {
+    margin-right: 5px;
+}
+
+#workersListTitle {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+    text-align: center;
+}
+
+#sidePanelTitle {
+    margin-right: 15px;
+    margin-left: 28%;
+    font-size: 2rem;
+    font-family: "Arial", sans-serif;
+}
+
+/* Стили для рассписания работы */
+
+.timetableTitle {
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    width: calc(80% - 3px);
+    height: 10%;
+    font-family: "Arial", sans-serif;
+    background-color: #e7e6e6;
+    border: 2px solid #253a3b;
+}
+
+.timetableTitleUl {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.timetableTitle h1 {
+    font-size: 2rem;
+    width: 60%;
+}
+
+.buttons {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.chartButton {
+    height: 100%;
+    font-size: 1.2rem;
+
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #eee;
+    border: 2px solid #253a3b;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.chartButton:hover {
+    background-color: #ddd;
+}
+
+.timetableContent {
+    z-index: 2;
+    position: relative;
+    top: calc(10% + 4px);
+    display: flex;
+    flex-direction: row;
+    min-height: calc(90% - 8px);
+    width: 100%;
+    background-color: #e7e6e6;
+    border: 2px solid #253a3b;
+}
+
+.timetableContent li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.schedule {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: aqua;
+    padding-top: 0;
+    width: 200px;
+}
+
+.schedule li {
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-left: -50px;
+    margin-right: -10px;
+    font-size: 1.1rem;
+    color: black;
+}
+
+.schedule li:hover {
+    background-color: #ddd;
+}
+
+.oneWorker {
+    color: #ddd;
+    background-color: #A9A9A9;
+    display: flex;
+    text-align: center;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.date {
+    background-color: #393939;
+    width: 100%;
+    margin-top: -10px;
+    margin-left: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.FIO {
+    background-color: #6D6D6D;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.1rem;
+}

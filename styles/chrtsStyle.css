@@ -1,0 +1,84 @@
+.charts_wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.charts_content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 100%;
+    width: 80%;
+}
+
+.charts_content div {
+    padding-right: 50px;
+}
+
+.back_to_index {
+    float: left;
+    margin-top: 20px;
+    font-family: "Arial", sans-serif;
+    color: black;
+    width: 90px;
+    font-size: 1rem;
+    text-align: center;
+    background-color: #eee;
+    border: 2px solid #253a3b;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.back_to_index:hover {
+    background-color: #ddd;
+}
+
+#diagramEmployment {
+    border-bottom: 2px solid #253a3b
+}
+
+#diagramEmployment_InternalHeader th {
+    padding-right: 10px;
+}
+
+#diagramEmployment_content td {
+    vertical-align: bottom;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    min-height: 20px;
+}
+
+#diagramEmploymentAll {
+    border-bottom: 2px solid #253a3b
+}
+
+#diagramEmploymentAll_InternalHeader th {
+    padding-right: 10px;
+}
+
+#diagramEmploymentAll_content td {
+    vertical-align: bottom;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    min-height: 20px;
+}
+
+#diagramDayOfTheWeek {
+    border-bottom: 2px solid #253a3b
+}
+
+#diagramDayOfTheWeek_InternalHeader th {
+    padding-right: 10px;
+}
+
+#diagramDayOfTheWeek_content td {
+    vertical-align: bottom;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    min-height: 20px;
+}

@@ -17,7 +17,7 @@ let optionChartDayOfWeek = {
         data: ['Записи']
     },
     xAxis: {
-        data: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        data: ['Воскресенье', 'Понедельик', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
     },
     yAxis: {},
     series: [

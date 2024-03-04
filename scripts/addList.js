@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
             recordingTime.addEventListener('click', function () {
 
               //Удаление
-              if (recordingTime.style.backgroundColor == "green") {
+              let ComputedStyle = getComputedStyle(recordingTime);
+              if (ComputedStyle.backgroundColor == "rgb(0, 128, 0)") {
                 let del = confirm("Вы хотите удалить запись?");
                 if (del) {
                   //как лучше?
@@ -74,7 +75,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem(key, FIO)
 
                 recordingTime.innerHTML = FIO;
-                recordingTime.style.backgroundColor = "green";
+                recordingTime.classList.add("appointment");
+                recordingTime.classList.remove("freely");
+                //recordingTime.style.backgroundColor = "green";
                 //localStorage.clear();
               }
               else {
@@ -107,10 +110,17 @@ function deleteRecord(element, fio, date) {
 
   timeInnerHtml = element.nextSibling.innerHTML;
   let [hours, minuts] = timeInnerHtml.split(":");
-  let time = hours + ":" + (minuts - 10);
+  minuts = minuts - 10;
+  if (minuts == "0") {
+    minuts = "00";
+  }
+  let time = hours + ":" + (minuts);
+
 
   element.innerHTML = time;
-  element.style.backgroundColor = "";
+  element.classList.remove("appointment");
+  element.classList.add("freely");
+  //element.style.backgroundColor = "";
 
   let key = fio + "," + date + "," + time;
 
@@ -170,6 +180,7 @@ function recordingTimeEnter(lastscheduleList, lastFIO, defaultDate) {
     if (localStorage.length == 0) {
       newItem.innerHTML = (hours + ":" + minuts);
       newItem.setAttribute('data-time', 0);
+      newItem.classList.add("freely");
       lastscheduleList.append(newItem);
       time.setMinutes(time.getMinutes() + 10)
     }
@@ -183,7 +194,8 @@ function recordingTimeEnter(lastscheduleList, lastFIO, defaultDate) {
         thereIsRecord = true;
         KeyName = localStorage.getItem(key);
         newItem.innerHTML = KeyName;
-        newItem.style.backgroundColor = "green";
+        newItem.classList.add("appointment");
+        //newItem.style.backgroundColor = "green";
         newItem.setAttribute('data-time', 0);
         lastscheduleList.append(newItem);
         time.setMinutes(time.getMinutes() + 10);
@@ -193,6 +205,7 @@ function recordingTimeEnter(lastscheduleList, lastFIO, defaultDate) {
     if (!thereIsRecord && localStorage.length != 0) {
       newItem.innerHTML = (hours + ":" + minuts);
       newItem.setAttribute('data-time', 0);
+      newItem.classList.add("freely");
       lastscheduleList.append(newItem);
       time.setMinutes(time.getMinutes() + 10);
     }

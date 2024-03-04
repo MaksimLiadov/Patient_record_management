@@ -167,7 +167,6 @@ html {
 
 .timetableContent li {
     display: inline-block;
-    margin-right: 30px;
 }
 
 .schedule {
@@ -180,7 +179,17 @@ html {
     width: 200px;
 }
 
-.schedule li {
+.appointment {
+    background-color: green;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-left: -50px;
+    font-size: 1.1rem;
+    color: black;
+    margin-right: -10px;
+}
+
+.freely {
     background-color: #eee;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -190,9 +199,19 @@ html {
     color: black;
 }
 
-.schedule li:hover {
+/* .schedule li {
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-left: -50px;
+    margin-right: -10px;
+    font-size: 1.1rem;
+    color: black;
+} */
+
+/* .schedule li:hover {
     background-color: #ddd;
-}
+} */
 
 .oneWorker {
     color: #ddd;
@@ -203,6 +222,7 @@ html {
     border-top-left-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
+    margin-right: 50px;
 }
 
 .date {

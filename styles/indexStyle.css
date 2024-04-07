@@ -19,7 +19,6 @@ html {
 
 .mainContent {
     position: relative;
-    z-index: 1;
     left: 20%;
     height: 100%;
     float: left;
@@ -154,7 +153,7 @@ html {
 }
 
 .timetableContent {
-    z-index: 2;
+    /* z-index: 2; */
     position: relative;
     top: calc(10% + 4px);
     display: flex;

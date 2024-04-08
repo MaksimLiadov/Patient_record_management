@@ -73,7 +73,12 @@ html {
     background-color: #e7e6e6;
     border: 2px solid #253a3b;
     min-height: calc(82% - 8px);
-    overflow-y: auto;
+    max-height: calc(82% - 8px);
+}
+
+.workersListWrapper {
+    height: 100%;
+    overflow: auto;
 }
 
 .workersListUl li {

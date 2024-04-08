@@ -68,6 +68,8 @@ html {
 /* Стили для списка "Специалисты" */
 
 .workersList {
+    display: flex;
+    flex-direction: column;
     background-color: #e7e6e6;
     border: 2px solid #253a3b;
     min-height: calc(82% - 8px);
@@ -92,12 +94,11 @@ html {
     list-style: none;
     padding: 0;
     margin: 10px;
-    text-align: center;
+    justify-content: center;
 }
 
 #sidePanelTitle {
-    margin-right: 15px;
-    margin-left: 28%;
+    text-align: center;
     font-size: 2rem;
     font-family: "Arial", sans-serif;
 }
@@ -197,20 +198,6 @@ html {
     font-size: 1.1rem;
     color: black;
 }
-
-/* .schedule li {
-    background-color: #eee;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    margin-left: -50px;
-    margin-right: -10px;
-    font-size: 1.1rem;
-    color: black;
-} */
-
-/* .schedule li:hover {
-    background-color: #ddd;
-} */
 
 .oneWorker {
     color: #ddd;

@@ -77,8 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 recordingTime.innerHTML = FIO;
                 recordingTime.classList.add("appointment");
                 recordingTime.classList.remove("freely");
-                //recordingTime.style.backgroundColor = "green";
-                //localStorage.clear();
               }
               else {
                 alert("Введено некоректное ФИО");
@@ -107,22 +105,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function deleteRecord(element, fio, date) {
+  let parent = element.parentNode;
+  let numberOfelem;
+  for (let i = 0; i < parent.childNodes.length; i++) {
+    if (parent.childNodes[i] == element) {
+      numberOfelem = i - 2;
+    }
+  }
 
-  timeInnerHtml = element.nextSibling.innerHTML;
-  let [hours, minuts] = timeInnerHtml.split(":");
-  minuts = minuts - 10;
+  let time = new Date();
+  time.setHours(8, 0, 0);
+  for (let i = 0; i < numberOfelem; i++) {
+    time.setMinutes(time.getMinutes() + 10);
+  }
+  let hours = time.getHours();
+  let minuts = time.getMinutes();
   if (minuts == "0") {
     minuts = "00";
   }
-  let time = hours + ":" + (minuts);
 
-
-  element.innerHTML = time;
+  element.innerHTML = (hours + ":" + minuts);
   element.classList.remove("appointment");
   element.classList.add("freely");
-  //element.style.backgroundColor = "";
 
-  let key = fio + "," + date + "," + time;
+  let key = fio + "," + date + "," + hours + ":" + minuts;
 
   localStorage.removeItem(key)
 }
@@ -195,7 +201,6 @@ function recordingTimeEnter(lastscheduleList, lastFIO, defaultDate) {
         KeyName = localStorage.getItem(key);
         newItem.innerHTML = KeyName;
         newItem.classList.add("appointment");
-        //newItem.style.backgroundColor = "green";
         newItem.setAttribute('data-time', 0);
         lastscheduleList.append(newItem);
         time.setMinutes(time.getMinutes() + 10);

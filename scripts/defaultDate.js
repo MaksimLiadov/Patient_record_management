@@ -59,14 +59,16 @@ function recordingTimeChange(oneWorker, FIO, date) {
                 thereIsRecord = true;
                 KeyName = localStorage.getItem(key);
                 schedule.childNodes[i].innerHTML = KeyName;
-                schedule.childNodes[i].style.backgroundColor = "green";
+                schedule.childNodes[i].classList.add("appointment");
+                schedule.childNodes[i].classList.remove("freely");
                 time.setMinutes(time.getMinutes() + 10)
             }
         }
         if (!thereIsRecord && localStorage.length != 0) {
             schedule.childNodes[i].innerHTML = (hours + ":" + minuts);
             time.setMinutes(time.getMinutes() + 10);
-            schedule.childNodes[i].style.backgroundColor = "";
+            schedule.childNodes[i].classList.add("freely");
+            schedule.childNodes[i].classList.remove("appointment");
         }
     }
 }
